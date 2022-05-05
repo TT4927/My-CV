@@ -1,0 +1,116 @@
+/*write your css code here*/
+body{
+    text-align: justify;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/*To start using Grid, we add display: grid to our outer resume element. 
+Next, we describe how things should be placed on the grid. In this case, we will specify two columns and four rows.
+We are using the CSS Grid’s fr unit to specify how many fractions on the available space to give. 
+We will give the rows equal space (1fr each), and make the first column two times wider than the second (2fr)*/
+.resume {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 50px 100px;
+}
+/*Next we will describe how these elements should be placed on the grid by using the grid-template-area property. 
+First we need to define a named grid-area for each of our sections*/
+/*Define a grid area for each section*/
+.name{
+    grid-area: name;
+    text-align: center;
+    background-color: lightgray;
+    border-radius: 20px;
+
+}
+.photo{
+    grid-area: photo;
+    background-color: lightgray;
+    border-radius: 20px;  
+}
+.about{
+    grid-area: about;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+.work{
+    grid-area: work;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+.education{
+    grid-area: education;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+.community{
+    grid-area: community;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+.skills{
+    grid-area: skills;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+/*Place the grid areas in the grid-template-areas property how you want them to be laid out*/
+.resume {
+    grid-template-areas: 
+    "photo name"
+    "work about"
+    "work skills"
+    "community education";
+}
+/*Make it responsive for lay out for wider screens*/
+@media only screen and (min-width: 980px) {
+    .resume{
+        grid-template-areas:
+        "name photo"
+        "work about"
+        "work skills"
+        "community education"
+    }
+}
+ 
+/* Make it responsive for lay out for a tablet */
+/* @media only screen and (min-width: 768px) and (min-width:979px) {
+    .resume{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+        "name photo"
+        "about about"
+        "work work"
+        "education education"
+        "skills skills"
+        "community community"
+    }
+    body {
+    background-color: lightblue;
+    }
+} */
+
+/*make it responsive for lay out for a phone*/
+@media only screen and (max-width: 480px){
+    .resume{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "photo"
+        "name"
+        "about"
+        "work"
+        "education"
+        "skills"
+        "community"
+     } 
+    body{
+        background-color: lightgreen;
+    }
+} 
+
+/*print in one single page A4*/
+.resume {
+    width: 210mm;
+    height: 297mm;
+    border: 1px solid black;
+    margin: auto;
+}
